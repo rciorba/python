@@ -1,0 +1,4 @@
+int:a:2
+string:b:12
+string:c:corina
+string:i:ioan
