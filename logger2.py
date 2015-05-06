@@ -11,9 +11,20 @@ class LoggerDecorator(object):
 		for k, v in self.cls.__dict__.iteritems():
 			if hasattr(v, "__call__"):
 				print "function found ", v.__name__
-				v = decorate(v)
-				
-
+				#clearly not doing what is supposed to do 
+				v = LoggerDecorator.decorate(v)
+		
+	@staticmethod
+	def decorate(function):
+		function = LoggerDecorator.decorator(function)
+	
+	@staticmethod
+	def decorator(function):
+		def inner(function):
+			print "I am calling ", function.__name__
+			return function()
+		return inner
+		
 class Test(object):
 	def __init__(self):
 		print "cucu"
@@ -22,5 +33,4 @@ class Test(object):
 		print "ducu"
 		
 LoggerDecorator(Test).investigate()
-
-	
+Test().pa()
