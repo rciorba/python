@@ -16,7 +16,9 @@ def uberLogTimes():
 			return return_
 		return inner
 	return logTimes
-	
+
+# you don't really pass any arguments to this decorator factory
+# can you get rid of it entirely?
 logger = uberLogTimes()
 
 @logger
@@ -30,6 +32,12 @@ def foo2(mama, tata, corina):
 	print "inside foo2"
 	time.sleep(3)
 	return "mama"
+
+@logger
+def foo3():
+	time.sleep(4)
+	assert False
 	
 foo1(1, 2)
 foo2(1, 2, 3)
+foo3() # how about this one?
