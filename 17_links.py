@@ -1,3 +1,4 @@
+# cool stuff, have a look at requests and BeautifulSoup if you need to do this stuff
 import urllib2
 import re 
 
